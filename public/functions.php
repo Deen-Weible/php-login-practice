@@ -19,3 +19,35 @@ function check_login($con)
 // 	header("Location: login.php");
 // 	die;
 }
+
+function add() {
+	return intval($_POST['number']) + 10;
+}
+
+// Check if the number is set
+// Check if the number and operation are set
+if (isset($_POST['number']) && isset($_POST['operation'])) {
+	$number = intval($_POST['number']);
+	$operation = $_POST['operation'];
+
+	// Determine which operation to perform
+	switch ($operation) {
+			case 'add':
+					$result = add($number);
+					break;
+			case 'subtract':
+					$result = subtract($number);
+					break;
+			case 'multiply':
+					$result = multiply($number);
+					break;
+			default:
+					$result = "Invalid operation.";
+					break;
+	}
+
+	// Return the result
+	echo $result;
+} else {
+	echo "No number or operation provided.";
+}

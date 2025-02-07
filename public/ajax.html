@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Number Addition</title>
+</head>
+<body>
+    <h1>Number Addition</h1>
+    <input type="number" id="numberInput" placeholder="Enter a number" />
+    <button id="calculateButton">Add Number</button>
+    <h2>Result: <span id="result">0</span></h2>
+
+    <script>
+        document.getElementById('calculateButton').addEventListener('click', function() {
+            var number = document.getElementById('numberInput').value;
+            var operation = "add";
+
+            // Create a new XMLHttpRequest object
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'functions.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            // Define what happens on successful data submission
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Update the result on the page
+                    document.getElementById('result').innerText = xhr.responseText;
+                }
+            };
+
+            // Send the request with the number and operation
+            xhr.send('number=' + encodeURIComponent(number) + '&operation=' + encodeURIComponent(operation));
+        });
+    </script>
+</body>
+</html>
