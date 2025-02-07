@@ -16,4 +16,4 @@ You can log in and create new users.
 This is not a finished or secure project! please, use it to learn. It is not prouction ready!!!
 
 ## License
-This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT license. See the [LICENSE](LICENSE.txt) file for details.
